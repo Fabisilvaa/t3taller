@@ -73,6 +73,14 @@
             width: 100%;
             display: flex;
         }
+
+         /* Movies list */
+        .movie-list {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: center;
+        }
         
         .input-container input {
             flex: 1;
@@ -114,26 +122,29 @@
 </style>
 </head>
 <body>
+    <div class="movie-list">
+        Peliculas: heathers, the perks of bein a wallflower, coraline, fantastic beasts, the breakfast club
+        elemental, ferris bueller's day off, into the woods, the addams family, y pride and perjudice
+      </div>
 
     <div class="chat-container">
       <div class="messages" id="messages">
-          <!-- Messages will be displayed here -->
+
       </div>
       <div class="input-container">
-          <input type="text" id="user-input" placeholder="Ask about a movie script...">
+          <input type="text" id="user-input" placeholder="Preguntar usando el nombre de la pelicula...">
           <button onclick="sendMessage()">Send</button>
       </div>
   </div>
+
 
   <script>
       async function sendMessage() {
           const userInput = document.getElementById('user-input').value;
           if (!userInput.trim()) return;
 
-          // Display the user's message
           displayMessage(userInput, 'user-message');
 
-          // Send the user input to the backend
           const response = await fetch('/ask_chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
