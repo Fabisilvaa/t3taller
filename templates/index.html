@@ -13,6 +13,17 @@
             height: 100vh;
             background-color: #f0d5fb;
             margin: 0;
+            flex-direction: column;
+        }
+        
+        /* Description styling */
+        .description {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
         }
         
         /* Chat container */
@@ -26,13 +37,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        
-        h2 {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.5em;
-            color: #333;
-            margin-top: 20px;
         }
         
         /* Messages area */
@@ -73,14 +77,6 @@
             width: 100%;
             display: flex;
         }
-
-         /* Movies list */
-        .movie-list {
-            font-size: 0.9em;
-            color: #555;
-            margin-bottom: 15px;
-            text-align: center;
-        }
         
         .input-container input {
             flex: 1;
@@ -116,27 +112,28 @@
         /* Responsive design */
         @media (max-width: 600px) {
             .chat-container {
-            width: 90%;
+                width: 90%;
             }
         }
-</style>
+  </style>
 </head>
 <body>
-    <div class="movie-list">
-        <h3>Peliculas: heathers, the perks of bein a wallflower, coraline, fantastic beasts, the breakfast club
-        elemental, ferris bueller's day off, into the woods, the addams family, y pride and perjudice<h3>
+
+    <!-- Description Text -->
+    <div class="description">
+        <p>Peliculas en db (respuesta 1-3min): heathers </p>
+        <p> Peliculas a segmentar (10min): The breakfast club, pride and perjudice, the addams family, fantastcs beasts, into the woods</p>
+        <p> elemental, coraline, ferris bueller's day off, the perks of being a wallflower</p>
     </div>
 
     <div class="chat-container">
       <div class="messages" id="messages">
-
       </div>
       <div class="input-container">
-          <input type="text" id="user-input" placeholder="Preguntar usando el nombre de la pelicula...">
+          <input type="text" id="user-input" placeholder="Ask a question using the movie's title...">
           <button onclick="sendMessage()">Send</button>
       </div>
-  </div>
-
+    </div>
 
   <script>
       async function sendMessage() {
@@ -152,17 +149,17 @@
             });
           
           const data = await response.json();
-            if (data.answer) {
-                displayMessage(data.answer, 'bot-message');
-            } else {
-                displayMessage(data.error, 'bot-message');
-            }
+          if (data.answer) {
+              displayMessage(data.answer, 'bot-message');
+          } else {
+              displayMessage(data.error, 'bot-message');
+          }
 
           // Display the bot's response
           displayMessage(data.context, 'bot-message');
 
           // Clear the input field
-          document.getElementById('userInput').value = '';
+          document.getElementById('user-input').value = '';
       }
 
       function displayMessage(text, className) {

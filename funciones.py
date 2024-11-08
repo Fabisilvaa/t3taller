@@ -145,7 +145,6 @@ def gen_answer_aux(movie_name, movie_cache):
         print("la peli es heathers")
         movie_seg = collection.get()
 
-
     if not movie_seg:
         print("segmentando..")
 

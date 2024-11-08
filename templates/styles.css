@@ -1,4 +1,4 @@
-/* General styling */
+
 body {
   font-family: 'Arial', sans-serif;
   display: flex;
@@ -9,7 +9,6 @@ body {
   margin: 0;
 }
 
-/* Chat container */
 .chat-container {
   width: 100%;
   max-width: 500px;
@@ -29,7 +28,6 @@ h2 {
   margin-top: 20px;
 }
 
-/* Messages area */
 .messages {
   padding: 20px;
   overflow-y: auto;
@@ -63,7 +61,7 @@ h2 {
   align-self: flex-start;
 }
 
-/* Input container */
+
 .input-container {
   width: 100%;
   display: flex;
@@ -83,7 +81,6 @@ h2 {
   color: #888;
 }
 
-/* Button styling */
 .input-container button {
   padding: 15px 20px;
   border: none;
